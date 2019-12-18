@@ -17,5 +17,8 @@ function () {
     } else if (env == 'e2e') {
         // customize
     }
+    for(p in config) {
+        karate.log ("##### config." + p, ": " + config[p])
+    }
     return config;
 }
