@@ -13,13 +13,13 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class DemoTest extends TestBase {
+public class RunKarateTest extends TestBase {
 
     private static final String REPORT_TITLE = "karate-test-prime-example";
     private static final String GLOBAL_IGNORE_ALL = "~@ignore";
 
     public static void main(String[] args) {
-        new DemoTest().runAPITests();
+        new RunKarateTest().runAPITests();
     }
 
     @Test
