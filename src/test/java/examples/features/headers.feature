@@ -1,6 +1,6 @@
-Feature: sample karate test script to reproduce https://github.com/intuit/karate/issues/552
+Feature: sample karate test script
 
-  Scenario: Match to headers
+  Scenario: Match to json response
 
     Given url demoBaseUrl + '/asjson'
     When method get
