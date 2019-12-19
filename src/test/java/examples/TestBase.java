@@ -1,16 +1,7 @@
 package examples;
 
 import org.junit.BeforeClass;
-import org.junit.runner.RunWith;
 
-import com.intuit.karate.junit4.Karate;
-
-
-/**
- *
- * @author pthomas3
- */
-@RunWith(Karate.class)
 public abstract class TestBase {
 
     private static ServerStart server;
