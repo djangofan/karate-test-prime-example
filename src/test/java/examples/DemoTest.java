@@ -2,7 +2,6 @@ package examples;
 
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
-import cucumber.api.CucumberOptions;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import org.apache.commons.io.FileUtils;
@@ -19,11 +18,6 @@ public class DemoTest extends TestBase {
     private static final String REPORT_TITLE = "karate-test-prime-example";
     private static final String GLOBAL_IGNORE_ALL = "~@ignore";
 
-    // this class will automatically pick up all *.feature files
-    // in src/test/java/demo and even recurse sub-directories
-    // even though the class name ends with 'Test', the maven 'pom.xml'
-    // has set 'DemoTestParallel' to be the default 'test suite' for the whole project
-
     public static void main(String[] args) {
         new DemoTest().runAPITests();
     }
@@ -36,7 +30,7 @@ public class DemoTest extends TestBase {
 
         generateReport(results.getReportDir());
 
-        Assert.assertEquals("Had at least one test failure.", 0, results.getFailCount());
+        Assert.assertEquals("Had at least one test failure.  See the HTML report for details.", 0, results.getFailCount());
     }
 
     static void generateReport(String karateOutputPath) {
