@@ -24,7 +24,7 @@ public class DemoTest extends TestBase {
 
     @Test
     public void runAPITests() {
-        Results results = Runner.parallel(5, "classpath:examples", GLOBAL_IGNORE_ALL);
+        Results results = Runner.parallel(5, "classpath:examples/features", GLOBAL_IGNORE_ALL);
 
         Assert.assertTrue("Did not find any cucumber tests to execute.",results.getFeatureCount() > 0);
 
