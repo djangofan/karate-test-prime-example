@@ -8,3 +8,5 @@ Run with
 
     mvn clean verify
 
+Report can be found at `target/cucumber-html-reports/overview-features.html`
+
