@@ -14,4 +14,6 @@ Feature: sample karate test script
 
   Scenario: call another feature file
     # TODO
+    
+  Scenario: scenario that calls api by starting a Chrome driver !!!
 
