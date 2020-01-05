@@ -1,0 +1,12 @@
+
+FROM karate-test-prime-example_maven-base
+
+ENV GRADLE_VER 6.0.1
+RUN wget -q https://services.gradle.org/distributions/gradle-6.0.1-bin.zip \
+    && unzip gradle-$GRADLE_VER-bin.zip -d /opt \
+    && rm gradle-6.0.1-bin.zip
+ENV GRADLE_HOME /opt/gradle-6.0.1
+ENV PATH $PATH:/opt/gradle-6.0.1/bin
+# if you try to compose this directly, the container will just run the following command and exit
+CMD ["/bin/bash", "-c", "echo \"PATH: $PATH\""]
+

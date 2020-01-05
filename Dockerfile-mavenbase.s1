@@ -1,0 +1,10 @@
+
+FROM maven:3.6-jdk-8-alpine
+
+VOLUME /tmp
+RUN apk add --no-cache curl tar bash procps
+ENV PATH $PATH:.:$MAVEN_HOME/bin
+RUN ls -al /bin
+RUN ls -al /usr/local/bin
+# if you try to compose this directly, the container will just run the following command and exit
+CMD ["/bin/bash", "-c", "echo \"PATH: $PATH\""]

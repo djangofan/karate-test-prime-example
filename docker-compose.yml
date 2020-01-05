@@ -1,16 +1,30 @@
 
-version: '3'
-
+version: '3.4'
 services:
 
-  # start api service
-  api:
-    build: .
+  maven-base:
+    container_name: maven-base
+    build:
+      context: .
+      dockerfile: Dockerfile-mavenbase
+
+  gradle-base:
+    container_name: gradle-base
+    build:
+      context: .
+      dockerfile: Dockerfile-gradlebase
+
+  service-api:
+    container_name: service-api
+    build:
+      context: .
+      dockerfile: Dockerfile-apibase
     ports:
-      - '8083:8083'
+      - "8083:8083"
 
-  # run Karate tests against service
-  e2e:
-    build: .
-    command: bash -c "wait-for-it.sh localhost:8083 && gradle clean test -Dorg.gradle.project.buildDir=/usr/src/example"
-
+  e2e-tests:
+    container_name: e2e-tests
+    build:
+      context: .
+      dockerfile: Dockerfile-testbase
+    command: bash -c "wait-for-it.sh service-api:8083 && gradle clean test -Dorg.gradle.project.buildDir=/usr/src/example"

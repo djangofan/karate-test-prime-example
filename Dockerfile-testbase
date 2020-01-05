@@ -1,0 +1,7 @@
+
+FROM karate-test-prime-example_gradle-base
+
+COPY . /usr/src/example
+WORKDIR /usr/src/example
+RUN ["chmod", "+x", "wait-for-it.sh"]
+
