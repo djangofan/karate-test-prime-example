@@ -3,7 +3,8 @@ FROM karate-test-prime-example_gradle-base
 
 COPY . /usr/src/example
 WORKDIR /usr/src/example
-RUN ["gradle", "assemble", "-x", "test"]
+RUN ["echo", "Assembling .jar ..."]
+RUN ["gradle", "-q", "assemble", "-x", "test"]
 EXPOSE 8083
 
 ENTRYPOINT ["java","-jar","build/libs/karate-test-prime-example-1.0-SNAPSHOT.jar"]
