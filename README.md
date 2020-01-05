@@ -23,6 +23,10 @@ Build the docker containers by running this command from project root folder:
 Then, start service and execute tests with this command:
 
     docker-compose up
+    
+Or:
+   
+    docker-compose up --exit-code-from e2e-tests
 
 This is a output example:
 
