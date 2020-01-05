@@ -24,6 +24,9 @@ Then, start service and execute tests with this command:
 
     docker-compose up
 
+This is a output example:
+
+![Screenshot](docker.png)
 
 ## Generate Artifacts
 
