@@ -28,3 +28,4 @@ services:
       context: .
       dockerfile: Dockerfile-testbase
     command: bash -c "wait-for-it.sh service-api:8083 && gradle clean test -Dorg.gradle.project.buildDir=/usr/src/example"
+
