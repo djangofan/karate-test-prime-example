@@ -1,0 +1,14 @@
+
+version: '3'
+
+services:
+
+  api:
+    build: .
+    ports:
+      - '8083:8083'
+
+  e2e:
+    build: .
+    command: wait_for_it.sh localhost:8083 && gradle clean test
+

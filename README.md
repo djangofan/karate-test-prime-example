@@ -6,7 +6,7 @@ A project to try to show a nice way of configuring Karate to test a Spring Boot 
 
 Run with
 
-    mvn clean verify
+    gradle build
 
-Report can be found at `target/cucumber-html-reports/overview-features.html`
+Report can be found at `build/cucumber-html-reports/overview-features.html`
 

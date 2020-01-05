@@ -1,0 +1,55 @@
+
+plugins {
+    id 'java'
+    id 'idea'
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url = 'http://repo.maven.apache.org/maven2'
+    }
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.2.2.RELEASE'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+    testImplementation 'com.intuit.karate:karate-apache:0.9.5.RC5'
+    testImplementation 'com.intuit.karate:karate-junit4:0.9.5.RC5'
+    testImplementation 'net.masterthought:cucumber-reporting:5.0.1'
+}
+
+group = 'info.test'
+version = '1.0-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/resources"
+            includes = ["**/*.properties"]
+        }
+    }
+    test {
+        resources {
+            srcDirs "src/test/java"
+            includes = ["**/*.js", "**/*.xml", "**/*.feature"]
+        }
+    }
+}
+
+// Task for Karate VSCode debugging
+task karateExecute(type: JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    main = 'com.intuit.karate.cli.Main'
+    args = ['-d']
+}
+
+test {
+    useJUnit()
+}
