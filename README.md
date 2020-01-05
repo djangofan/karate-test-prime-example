@@ -28,6 +28,10 @@ This is a output example:
 
 ![Screenshot](docker.png)
 
+And this is the state of the system when tests finish:
+
+![Screenshot](containers.png)
+
 ## Generate Artifacts
 
 Assemble runnable jar with:
