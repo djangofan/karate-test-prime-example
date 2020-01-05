@@ -3,12 +3,14 @@ version: '3'
 
 services:
 
+  # start api service
   api:
     build: .
     ports:
       - '8083:8083'
 
+  # run Karate tests against service
   e2e:
     build: .
-    command: wait_for_it.sh localhost:8083 && gradle clean test
+    command: bash -c "wait-for-it.sh localhost:8083 && gradle clean test -Dorg.gradle.project.buildDir=/usr/src/example"
 
